@@ -1,0 +1,21 @@
+{
+  "name": "web-server",
+  "description": "Servidor web hola mundo",
+  "keywords": [
+    "ltaw",
+    "test"
+  ],
+  "version": "0.0.1",
+  "author": "Juan Gonzalez-Gómez (Obijuan)",
+  "main": "server.js",
+  "devDependencies": {},
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Obijuan/2019-2020-LTAW-Practicas.git"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -v"
+  }
+}
