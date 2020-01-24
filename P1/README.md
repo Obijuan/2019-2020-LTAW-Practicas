@@ -1,1 +1,3 @@
 # Práctica 1
+
+Probando el acceso a github desde Atom...
