@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template.loader import get_template
 from django.shortcuts import render
 from random import randint
 
@@ -60,6 +61,24 @@ def test2(request):
 
     # -- Crear el contexto: Asignar el numero
     c = Context({'numero': str(numero)})
+
+    # -- Obtener la pagina html final
+    html = t.render(c)
+
+    return HttpResponse(html)
+
+
+# -- Ejemplo de generacion mediante una plantilla en FICHERO
+def test3(request):
+
+    # -- Obtener el número aleatorio
+    numero = randint(0, 100)
+
+    # -- Leer la plantilla del fichero
+    t = get_template('test.html')
+
+    # -- Crear el contexto: Asignar el numero
+    c = {'numero': str(numero)}
 
     # -- Obtener la pagina html final
     html = t.render(c)
