@@ -84,3 +84,9 @@ def test3(request):
     html = t.render(c)
 
     return HttpResponse(html)
+
+# -- Ejemplo de uso de la función Render
+def test4(request):
+    # -- Obtener el número aleatorio
+    numero = randint(0, 100)
+    return render(request, 'test.html', {'numero':str(numero)})
