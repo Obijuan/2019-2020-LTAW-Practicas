@@ -95,3 +95,13 @@ def test5(request):
     # -- Obtener el número aleatorio
     numero = randint(0, 100)
     return render(request, 'test5.html', {'numero':str(numero)})
+
+from mi_tienda.models import Producto
+
+def list(request):
+    objects = Producto.objects.all()
+    html = "<h2>Listado de articulos</h2>"
+    for elt in objects:
+        print(elt.nombre)
+        html += '<p>'+ elt.nombre + ' ' + str(elt.precio) + '<p>'
+    return HttpResponse(html)
