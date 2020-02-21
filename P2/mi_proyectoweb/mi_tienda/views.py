@@ -105,3 +105,7 @@ def list(request):
         print(prod.nombre)
         html += '<p>'+ prod.nombre + ' ' + str(prod.precio) + '<p>'
     return HttpResponse(html)
+
+def list2(request):
+    productos = Producto.objects.all()
+    return render(request, 'listado.html', {'productos':productos})

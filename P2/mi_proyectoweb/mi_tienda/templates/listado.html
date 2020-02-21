@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+  <html lang="es" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Listado</title>
+    </head>
+    <body>
+      <h1>Listado de productos</h1>
+      <ul>
+      {% for prod in productos %}
+          <li>{{ prod.nombre }}: --> Precio: {{prod.precio}}</a></li>
+      {% endfor %}
+      </ul>
+    </body>
+  </html>
