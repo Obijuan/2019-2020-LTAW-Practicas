@@ -99,9 +99,9 @@ def test5(request):
 from mi_tienda.models import Producto
 
 def list(request):
-    objects = Producto.objects.all()
+    productos = Producto.objects.all()
     html = "<h2>Listado de articulos</h2>"
-    for elt in objects:
-        print(elt.nombre)
-        html += '<p>'+ elt.nombre + ' ' + str(elt.precio) + '<p>'
+    for prod in productos:
+        print(prod.nombre)
+        html += '<p>'+ prod.nombre + ' ' + str(prod.precio) + '<p>'
     return HttpResponse(html)
