@@ -109,3 +109,10 @@ def list(request):
 def list2(request):
     productos = Producto.objects.all()
     return render(request, 'listado.html', {'productos':productos})
+
+from serial import Serial
+
+def toggle(request):
+    with Serial("/dev/ttyUSB1", 115200) as sp:
+        sp.write(b"t\n")
+    return HttpResponse("Accediendo a la FPGA: Toggle!")
