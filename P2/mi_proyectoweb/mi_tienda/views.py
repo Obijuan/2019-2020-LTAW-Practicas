@@ -116,3 +116,13 @@ def toggle(request):
     with Serial("/dev/ttyUSB1", 115200) as sp:
         sp.write(b"t\n")
     return HttpResponse("Accediendo a la FPGA: Toggle!")
+
+def formulario1(request):
+    return render(request, 'formulario1.html', {})
+
+def recepcion1(request):
+    # -- Obtener el nombre de la persona
+    persona = request.POST['nombre']
+    # -- Imprimirlo en la consola del servidor
+    print(f" PEDIDO RECIBIDO!!! ----> {persona}")
+    return HttpResponse("Datos recibidos!!. Comprador: " + request.POST['nombre'])
