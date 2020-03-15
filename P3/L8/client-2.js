@@ -23,20 +23,20 @@ ver.onclick = ()=>{
      if (m.readyState==4 && m.status==200){
 
        //-- La respuesta es un objeto JSON
-       let o = JSON.parse(m.responseText)
+       let productos = JSON.parse(m.responseText)
 
        //-- Borrar el resultado anterior que hubiese en el párrafo
        //-- de resultado
        resultado.innerHTML = "";
 
        //--Recorrer los productos del objeto JSON
-       for (let i=0; i < o.productos.length; i++) {
+       for (let i=0; i < productos.length; i++) {
 
          //-- Añadir cada producto al párrafo de visualización
-         resultado.innerHTML += o.productos[i];
+         resultado.innerHTML += productos[i];
 
          //-- Separamos los productos por ',''
-         if (i<o.productos.length-1) {
+         if (i < productos.length-1) {
            resultado.innerHTML += ', ';
          }
        }

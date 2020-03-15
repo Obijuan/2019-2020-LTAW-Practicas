@@ -6,6 +6,13 @@ const fs = require('fs');
 //-- Puerto donde recibir las peticiones
 const PUERTO = 8080;
 
+//-- Array con los productos disponibles en la tienda
+//-- Usamos un array, pero podría ser un objeto genérico
+//-- Por simplicidad lo inicializamos con valores constantes, pero
+//-- en una aplicación real este array se obtendría de la base
+//-- de datos
+let productos = ["FPGA-1", "RISC-V", "74ls00", "FPGA-2", "74ls01", "AVR", "Arduino-UNO"];
+
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
 //-- res: Mensaje de respuesta
@@ -40,24 +47,21 @@ function peticion(req, res) {
       break;
 
 
-    //-- Acceso al recurso JSON
-    case "/myquery":
+      //-- Acceso al recurso JSON
+      case "/myquery":
 
-      //-- Contenido en formato JSON
-      //-- Es lo que se va a devolver en la petición
-      content = `
-      {
-        "productos": ["FPGA", "RISC-V", "74ls00"]
-      }
-      `
-      //-- Generar el mensaje de respuesta
-      //-- IMPORTANTE! Hay que indicar que se trata de un objeto JSON
-      //-- en la cabecera Content-Type
-      res.setHeader('Content-Type', 'application/json')
-      res.write(content);
-      res.end();
-      return
-      break
+        //-- El array de productos lo pasamos a una cadena de texto,
+        //-- en formato JSON:
+        content = JSON.stringify(productos) + '\n';
+
+        //-- Generar el mensaje de respuesta
+        //-- IMPORTANTE! Hay que indicar que se trata de un objeto JSON
+        //-- en la cabecera Content-Type
+        res.setHeader('Content-Type', 'application/json')
+        res.write(content);
+        res.end();
+        return
+        break
 
     //-- Se intenta acceder a un recurso que no existe
     default:
