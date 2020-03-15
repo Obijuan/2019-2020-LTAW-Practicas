@@ -7,7 +7,7 @@ const fs = require('fs');
 const PUERTO = 8080;
 
 //-- Array con los productos disponibles
-let productos = ["FPGA-1", "RISC-V", "74ls00", "FPGA-2"];
+let productos = ["FPGA-1", "RISC-V", "74ls00", "FPGA-2", "74ls01", "AVR", "Arduino-UNO"];
 
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
