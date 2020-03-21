@@ -15,13 +15,6 @@ const io = require('socket.io')(http);
 //-- Puerto donde lanzar el servidor
 const PORT = 8080
 
-function servir_fichero(fich, res)
-{
-  let path = __dirname + '/' + fich;
-  res.sendFile(path);
-  console.log("Acceso a " + path);
-}
-
 //-- Lanzar servidor
 http.listen(PORT, function(){
   console.log('Servidor lanzado en puerto ' + PORT);
@@ -30,7 +23,9 @@ http.listen(PORT, function(){
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Página principal
 app.get('/', (req, res) => {
-  servir_fichero("chat-1.html", res)
+  let path = __dirname + '/chat-1.html';
+  res.sendFile(path);
+  console.log("Acceso a " + path);
 });
 
 //-- Otra vista de prueba
