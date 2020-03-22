@@ -23,7 +23,7 @@ http.listen(PORT, function(){
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Página principal
 app.get('/', (req, res) => {
-  let path = __dirname + '/chat-4.html';
+  let path = __dirname + '/chat-5.html';
   res.sendFile(path);
   console.log("Acceso a " + path);
 });
@@ -45,6 +45,10 @@ io.on('connection', function(socket){
 
   //-- Usuario conectado. Imprimir el identificador de su socket
   console.log('--> Usuario conectado!. Socket id: ' + socket.id);
+
+  //-- Le damos la bienvenida a través del evento 'hello'
+  //-- ESte evento lo hemos creado nosotros para nuestro chat
+  socket.emit('hello', "Bienvenido al Chat");
 
   //-- Usuario desconectado. Imprimir el identificador de su socket
   socket.on('disconnect', function(){
